@@ -1,0 +1,1407 @@
+ASL, a protocol includes a command for identifying and
+ authenticating a user to a server and for optionally negotiating
+ protection of subsequent protocol interactions. If its use is
+ negotiated, a security layer is inserted between the protocol and the
+ connection. See RFC 2222 for more information.
+ .
+ Any of: ANONYMOUS, CRAM-MD5, DIGEST-MD5, GSSAPI (MIT or Heimdal
+ Kerberos 5), NTLM, OTP, PLAIN, or LOGIN can be used.
+Homepage: https://www.cyrusimap.org/sasl/
+
+Package: libsasl2-modules-db
+Status: install ok unpacked
+Priority: standard
+Section: libs
+Installed-Size: 101
+Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.27+dfsg-1+deb10u1
+Depends: libc6 (>= 2.14), libdb5.3
+Description: Cyrus SASL - pluggable authentication modules (DB)
+ This is the Cyrus SASL API implementation, version 2.1. See package
+ libsasl2-2 and RFC 2222 for more information.
+ .
+ This package provides the DB plugin, which supports Berkeley DB lookups.
+Homepage: https://www.cyrusimap.org/sasl/
+
+Package: libseccomp2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 306
+Maintainer: Kees Cook <kees@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libseccomp
+Version: 2.3.3-4
+Depends: libc6 (>= 2.4)
+Description: high level interface to Linux seccomp filter
+ This library provides a high level interface to constructing, analyzing
+ and installing seccomp filters via a BPF passed to the Linux Kernel's
+ prctl() syscall.
+Homepage: https://github.com/seccomp/libseccomp
+
+Package: libselinux1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 194
+Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libselinux (2.8-1)
+Version: 2.8-1+b1
+Depends: libc6 (>= 2.14), libpcre3
+Description: SELinux runtime shared libraries
+ This package provides the shared libraries for Security-enhanced
+ Linux that provides interfaces (e.g. library functions for the
+ SELinux kernel APIs like getcon(), other support functions like
+ getseuserbyname()) to SELinux-aware applications. Security-enhanced
+ Linux is a patch of the Linux kernel and a number of utilities with
+ enhanced security functionality designed to add mandatory access
+ controls to Linux.  The Security-enhanced Linux kernel contains new
+ architectural components originally developed to improve the security
+ of the Flask operating system. These architectural components provide
+ general support for the enforcement of many kinds of mandatory access
+ control policies, including those based on the concepts of Type
+ Enforcement, Role-based Access Control, and Multi-level Security.
+ .
+ libselinux1 provides an API for SELinux applications to get and set
+ process and file security contexts and to obtain security policy
+ decisions.  Required for any applications that use the SELinux
+ API. libselinux may use the shared libsepol to manipulate the binary
+ policy if necessary (e.g. to downgrade the policy format to an older
+ version supported by the kernel) when loading policy.
+Homepage: http://userspace.selinuxproject.org/
+
+Package: libsemanage-common
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 30
+Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: libsemanage
+Version: 2.8-2
+Replaces: libsemanage1 (<= 2.0.41-1), libsemanage1-dev (<< 2.1.6-3~)
+Breaks: libsemanage1 (<= 2.0.41-1), libsemanage1-dev (<< 2.1.6-3~)
+Conffiles:
+ /etc/selinux/semanage.conf f6f9b97af233c90ca127f406fb6f0932
+Description: Common files for SELinux policy management libraries
+ This package provides the common files used by the shared libraries
+ for SELinux policy management.
+ .
+ Security-enhanced Linux is a patch of the Linux kernel and a
+ number of utilities with enhanced security functionality designed to
+ add mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement, Role-based Access
+ Control, and Multi-level Security.
+Homepage: http://userspace.selinuxproject.org/
+
+Package: libsemanage1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 301
+Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libsemanage
+Version: 2.8-2
+Depends: libsemanage-common (= 2.8-2), libaudit1 (>= 1:2.2.1), libbz2-1.0, libc6 (>= 2.14), libselinux1 (>= 2.8), libsepol1 (>= 2.8)
+Breaks: policycoreutils (<< 2.4), selinux-policy-default (<< 2:2.20140421-10~), selinux-policy-mls (<< 2:2.20140421-10~)
+Description: SELinux policy management library
+ This package provides the shared libraries for SELinux policy management.
+ It uses libsepol for binary policy manipulation and libselinux for
+ interacting with the SELinux system.  It also exec's helper programs
+ for loading policy and for checking whether the file_contexts
+ configuration is valid (load_policy and setfiles from
+ policycoreutils) presently, although this may change at least for the
+ bootstrapping case
+ .
+ Security-enhanced Linux is a patch of the Linux kernel and a
+ number of utilities with enhanced security functionality designed to
+ add mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement, Role-based Access
+ Control, and Multi-level Security.
+Homepage: http://userspace.selinuxproject.org/
+
+Package: libsepol1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 724
+Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libsepol
+Version: 2.8-1
+Depends: libc6 (>= 2.14)
+Description: SELinux library for manipulating binary security policies
+ Security-enhanced Linux is a patch of the Linux kernel and a number
+ of utilities with enhanced security functionality designed to add
+ mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type EnforcementÂ®, Role-based Access
+ Control, and Multi-level Security.
+ .
+ libsepol provides an API for the manipulation of SELinux binary policies.
+ It is used by checkpolicy (the policy compiler) and similar tools, as well
+ as by programs like load_policy that need to perform specific transformations
+ on binary policies such as customizing policy boolean settings.
+Homepage: http://userspace.selinuxproject.org/
+
+Package: libsigsegv2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 56
+Maintainer: Debian Common Lisp Team <debian-common-lisp@lists.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libsigsegv
+Version: 2.12-2
+Depends: libc6 (>= 2.4)
+Description: Library for handling page faults in a portable way
+ GNU libsigsegv is a library that allows handling page faults in a
+ portable way. It is used e.g. for generational garbage collectors
+ and stack overflow handlers.
+ .
+ This package contains the shared library.
+Homepage: https://www.gnu.org/software/libsigsegv/
+
+Package: libsmartcols1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 314
+Maintainer: LaMont Jones <lamont@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: util-linux
+Version: 2.33.1-0.1
+Depends: libc6 (>= 2.25)
+Description: smart column output alignment library
+ This smart column output alignment library is used by fdisk utilities.
+
+Package: libsqlite3-0
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 1288
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: sqlite3
+Version: 3.27.2-3
+Depends: libc6 (>= 2.28)
+Breaks: python-migrate (<< 0.11.0-4~), python3-migrate (<< 0.11.0-4~)
+Description: SQLite 3 shared library
+ SQLite is a C library that implements an SQL database engine.
+ Programs that link with the SQLite library can have SQL database
+ access without running a separate RDBMS process.
+Homepage: https://www.sqlite.org/
+
+Package: libsqlite3-dev
+Status: install ok unpacked
+Priority: optional
+Section: libdevel
+Installed-Size: 2234
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: sqlite3
+Version: 3.27.2-3
+Depends: libsqlite3-0 (= 3.27.2-3), libc6-dev
+Suggests: sqlite3-doc
+Description: SQLite 3 development files
+ SQLite is a C library that implements an SQL database engine.
+ Programs that link with the SQLite library can have SQL database
+ access without running a separate RDBMS process.
+ .
+ This package contains the development files (headers, static libraries)
+Homepage: https://www.sqlite.org/
+
+Package: libss2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 104
+Maintainer: Theodore Y. Ts'o <tytso@mit.edu>
+Architecture: amd64
+Multi-Arch: same
+Source: e2fsprogs
+Version: 1.44.5-1+deb10u3
+Replaces: e2fsprogs (<< 1.34-1)
+Depends: libcom-err2, libc6 (>= 2.17)
+Description: command-line interface parsing library
+ libss provides a simple command-line interface parser which will
+ accept input from the user, parse the command into an argv argument
+ vector, and then dispatch it to a handler function.
+ .
+ It was originally inspired by the Multics SubSystem library.
+Homepage: http://e2fsprogs.sourceforge.net
+
+Package: libssh2-1
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 270
+Maintainer: Mikhail Gusarov <dottedmag@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libssh2
+Version: 1.8.0-2.1
+Depends: libc6 (>= 2.14), libgcrypt20 (>= 1.8.0), zlib1g (>= 1:1.1.4)
+Description: SSH2 client-side library
+ libssh2 is a client-side C library implementing the SSH2 protocol.
+ It supports regular terminal, SCP and SFTP (v1-v5) sessions;
+ port forwarding, X11 forwarding; password, key-based and
+ keyboard-interactive authentication.
+ .
+ This package contains the runtime library.
+Homepage: https://libssh2.org/
+
+Package: libssl1.1
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 4077
+Maintainer: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: openssl
+Version: 1.1.1d-0+deb10u2
+Depends: libc6 (>= 2.25), debconf (>= 0.5) | debconf-2.0
+Breaks: isync (<< 1.3.0-2), lighttpd (<< 1.4.49-2), python-boto (<< 2.44.0-1.1), python-httplib2 (<< 0.11.3-1), python-imaplib2 (<< 2.57-5), python3-boto (<< 2.44.0-1.1), python3-imaplib2 (<< 2.57-5)
+Description: Secure Sockets Layer toolkit - shared libraries
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It provides the libssl and libcrypto shared libraries.
+Homepage: https://www.openssl.org/
+
+Package: libstdc++6
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2017
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Replaces: libstdc++6-8-dbg (<< 4.9.0-3)
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.18), libgcc1 (>= 1:4.2)
+Breaks: blockattack (<= 1.4.1+ds1-2.1+b2), boo (<= 0.9.5~git20110729.r1.202a430-2), c++-annotations (<= 10.2.0-1), clustalx (<= 2.1+lgpl-3), dff (<= 1.3.0+dfsg.1-4.1+b3), digikam-private-libs (<= 4:4.4.0-1.1+b2), dnsdist (<< 1.3.3-3), emscripten (<= 1.22.1-1), ergo (<= 3.4.0-1), fceux (<= 2.2.2+dfsg0-1), fiona (<= 1.5.1-2), flush (<= 0.9.12-3.1), freeorion (<= 0.4.4+git20150327-2), fslview (<= 4.0.1-4), fwbuilder (<= 5.1.0-4), gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2), gnote (<= 3.16.2-1), gnudatalanguage (<= 0.9.5-2+b2), innoextract (<= 1.4-1+b1), lambda-align (<< 1.0.3-5), libantlr-dev (<= 2.7.7+dfsg-6), libapache2-mod-passenger (<= 5.0.7-1), libaqbanking34-plugins, libaqsis1 (<= 1.8.2-1), libassimp3 (<= 3.0~dfsg-4), libboost-date-time1.54.0, libboost-date-time1.55.0, libchemps2-1 (<= 1.5-1), libcpprest2.4 (<= 2.4.0-2), libdap17 (<= 3.14.0-2), libdapclient6 (<= 3.14.0-2), libdapserver7 (<= 3.14.0-2), libdavix0 (<= 0.4.0-1+b1), libdballe6 (<= 6.8-1), libdiet-admin2.8 (<= 2.8.0-1+b3), libdiet-client2.8 (<= 2.8.0-1+b3), libdiet-sed2.8 (<= 2.8.0-1+b3), libfreefem++ (<= 3.37.1-1), libgazebo5 (<= 5.0.1+dfsg-2.1), libgetfem4++ (<= 4.2.1~beta1~svn4635~dfsg-3+b1), libgmsh2 (<= 2.9.3+dfsg1-1), libinsighttoolkit4.7 (<= 4.7.2-2), libkolabxml1 (<= 1.1.0-3), libktoblzcheck1c2a, liblhapdf0, libllvm3.8, libllvm3.9, libllvm4.0, libmarisa0 (<= 0.2.4-8), libogre-1.8.0 (<= 1.8.0+dfsg1-7+b1), libogre-1.9.0 (<= 1.9.0+dfsg1-4), libopenwalnut1 (<= 1.4.0~rc1+hg3a3147463ee2-1+b1), libpqxx-4.0 (<= 4.0.1+dfsg-3), libpythia8, libreoffice-core (<= 1:4.4.5-2), librime1 (<= 1.2+dfsg-2), libsimgrid3.14, libusbguard0 (<< 0.7.4+ds-1), libwibble-dev (<= 1.1-1), libwreport2 (<= 2.14-1), libxapian30 (<= 1.4.1-1~bpo8+1), libxmltooling6 (<= 1.5.3-2.1), lightspark (<= 0.7.2+git20150512-2+b1), mednafen (<< 1.22.1+dfsg-1), mira-assembler (<= 4.9.5-1), mongodb (<= 1:2.4.14-2), mongodb-server (<= 1:2.4.14-2), ncbi-blast+ (<= 2.2.30-4), nghttp2-proxy (<< 1.36.0-2), openscad (<= 2014.03+dfsg-1+b1), osm2pgsql (<< 0.96.0+ds-2), osmcoastline (<< 2.2.4-1), osmium-tool (<< 1.10.0-1), passepartout (<= 0.7.1-1.1), pdf2djvu (<= 0.7.21-2), pdns-recursor (<< 4.1.11-1), photoprint (<= 0.4.2~pre2-2.3+b2), plastimatch (<= 1.6.2+dfsg-1), plee-the-bear (<= 0.6.0-3.1), poedit (<< 2.2.1-2), povray (<= 1:3.7.0.0-8), powertop (<= 2.6.1-1), printer-driver-brlaser (<= 3-3), psi4 (<= 4.0~beta5+dfsg-2+b1), python-fiona (<= 1.5.1-2), python-guiqwt (<= 2.3.1-1), python-healpy (<= 1.8.1-1+b1), python-htseq (<= 0.5.4p3-2), python-imposm (<= 2.5.0-3+b2), python-pyosmium (<< 2.15.1-1), python-pysph (<= 0~20150606.gitfa26de9-5), python-rasterio (<= 0.24.0-1), python-scipy (<= 0.14.1-1), python-sfml (<= 2.2~git20150611.196c88+dfsg-1+b1), python3-fiona (<= 1.5.1-2), python3-pyosmium (<< 2.15.1-1), python3-scipy (<= 0.14.1-1), python3-sfml (<= 2.2~git20150611.196c88+dfsg-1+b1), python3-taglib (<= 0.3.6+dfsg-2+b2), realtimebattle (<= 1.0.8-14), ruby-passenger (<= 5.0.7-1), schroot (<= 1.6.10-1+b1), seer (<< 1.1.4-2), sqlitebrowser (<= 3.5.1-3), tecnoballz (<= 0.93.1-6), undertaker (<< 1.6.1-4.2), wesnoth-1.12-core (<= 1:1.12.4-1), widelands (<= 1:18-3+b1), xflr5 (<= 6.09.06-2)
+Conflicts: scim (<< 1.4.2-1)
+Description: GNU Standard C++ Library v3
+ This package contains an additional runtime library for C++ programs
+ built with the GNU compiler.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+Homepage: http://gcc.gnu.org/
+
+Package: libsybdb5
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 491
+Maintainer: Steve Langasek <vorlon@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: freetds
+Version: 1.00.104-1+deb10u1
+Depends: libc6 (>= 2.17), libgmp10, libgnutls30 (>= 3.6.6), libgssapi-krb5-2 (>= 1.17), libhogweed4, libnettle6, freetds-common
+Description: libraries for connecting to MS SQL and Sybase SQL servers
+ FreeTDS is an implementation of the Tabular DataStream protocol, used for
+ connecting to MS SQL and Sybase servers over TCP/IP.
+ .
+ This package includes the shared libraries for the Sybase DB-Lib API.
+Homepage: http://www.freetds.org/
+
+Package: libsystemd0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 767
+Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: systemd
+Version: 241-7~deb10u3
+Pre-Depends: libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), liblz4-1 (>= 0.0~r122), liblzma5 (>= 5.1.1alpha+20120614)
+Description: systemd utility library
+ The libsystemd0 library provides interfaces to various systemd components.
+Homepage: https://www.freedesktop.org/wiki/Software/systemd
+
+Package: libtasn1-6
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 112
+Maintainer: Debian GnuTLS Maintainers <pkg-gnutls-maint@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Version: 4.13-3
+Depends: libc6 (>= 2.14)
+Description: Manage ASN.1 structures (runtime)
+ Manage ASN1 (Abstract Syntax Notation One) structures.
+ The main features of this library are:
+   * on-line ASN1 structure management that doesn't require any C code
+     file generation.
+   * off-line ASN1 structure management with C code file generation
+     containing an array.
+   * DER (Distinguish Encoding Rules) encoding
+   * no limits for INTEGER and ENUMERATED values
+ .
+ This package contains runtime libraries.
+Homepage: http://www.gnu.org/software/libtasn1/
+
+Package: libtinfo6
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 521
+Maintainer: Craig Small <csmall@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: ncurses
+Version: 6.1+20181013-2+deb10u2
+Depends: libc6 (>= 2.16)
+Description: shared low-level terminfo library for terminal handling
+ The ncurses library routines are a terminal-independent method of
+ updating character screens with reasonable optimization.
+ .
+ This package contains the shared low-level terminfo library.
+Homepage: https://invisible-island.net/ncurses/
+
+Package: libudev1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 258
+Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: systemd
+Version: 241-7~deb10u3
+Depends: libc6 (>= 2.28)
+Description: libudev shared library
+ This library provides access to udev device information.
+Homepage: https://www.freedesktop.org/wiki/Software/systemd
+
+Package: libunistring2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 1600
+Maintainer: JÃ¶rg Frings-FÃ¼rst <debian@jff.email>
+Architecture: amd64
+Multi-Arch: same
+Source: libunistring
+Version: 0.9.10-1
+Depends: libc6 (>= 2.14)
+Description: Unicode string library for C
+ The 'libunistring' library implements Unicode strings (in the UTF-8,
+ UTF-16, and UTF-32 encodings), together with functions for Unicode
+ characters (character names, classifications, properties) and
+ functions for string processing (formatted output, width, word
+ breaks, line breaks, normalization, case folding, regular
+ expressions).
+ .
+ This package contains the shared library.
+Homepage: https://www.gnu.org/software/libunistring/
+
+Package: libuuid1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 120
+Maintainer: LaMont Jones <lamont@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: util-linux
+Version: 2.33.1-0.1
+Replaces: e2fsprogs (<< 1.34-1)
+Depends: libc6 (>= 2.25)
+Recommends: uuid-runtime
+Description: Universally Unique ID library
+ The libuuid library generates and parses 128-bit Universally Unique
+ IDs (UUIDs). A UUID is an identifier that is unique within the space
+ of all such identifiers across both space and time. It can be used for
+ multiple purposes, from tagging objects with an extremely short lifetime
+ to reliably identifying very persistent objects across a network.
+ .
+ See RFC 4122 for more information.
+
+Package: libzip-dev
+Status: install ok unpacked
+Priority: optional
+Section: libdevel
+Installed-Size: 294
+Maintainer: Stefan SchÃ¶rghofer <amd1212@4md.gr>
+Architecture: amd64
+Multi-Arch: same
+Source: libzip
+Version: 1.5.1-4
+Depends: libzip4 (= 1.5.1-4), zlib1g-dev
+Description: library for reading, creating, and modifying zip archives (development)
+ libzip is a C library for reading, creating, and modifying zip archives. Files
+ can be added from data buffers, files, or compressed data copied directly from
+ other zip archives. Changes made without closing the archive can be reverted.
+ .
+ This package contains the static libraries and headers for developing
+ applications that use the libzip library API.
+Homepage: https://libzip.org
+
+Package: libzip4
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 132
+Maintainer: Stefan SchÃ¶rghofer <amd1212@4md.gr>
+Architecture: amd64
+Multi-Arch: same
+Source: libzip
+Version: 1.5.1-4
+Depends: libbz2-1.0, libc6 (>= 2.14), libssl1.1 (>= 1.1.0), zlib1g (>= 1:1.1.4)
+Description: library for reading, creating, and modifying zip archives (runtime)
+ libzip is a C library for reading, creating, and modifying zip archives. Files
+ can be added from data buffers, files, or compressed data copied directly from
+ other zip archives. Changes made without closing the archive can be reverted.
+ .
+ This package contains the files necessary for running applications that
+ use the libzip library.
+Homepage: https://libzip.org
+
+Package: libzstd1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 670
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libzstd
+Version: 1.3.8+dfsg-3
+Depends: libc6 (>= 2.14)
+Description: fast lossless compression algorithm
+ Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
+ real-time compression scenarios at zlib-level compression ratio.
+ .
+ This package contains the shared library.
+Homepage: https://github.com/facebook/zstd
+
+Package: linux-libc-dev
+Status: install ok unpacked
+Priority: optional
+Section: devel
+Installed-Size: 5101
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: linux
+Version: 4.19.98-1
+Provides: linux-kernel-headers
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These
+ headers are used by the installed headers for GNU libc and other system
+ libraries.
+Homepage: https://www.kernel.org/
+
+Package: login
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: admin
+Installed-Size: 2695
+Maintainer: Shadow package maintainers <pkg-shadow-devel@lists.alioth.debian.org>
+Architecture: amd64
+Source: shadow
+Version: 1:4.5-1.1
+Replaces: manpages-de (<< 0.5-3), manpages-tr (<< 1.0.5), manpages-zh (<< 1.5.1-1)
+Pre-Depends: libaudit1 (>= 1:2.2.1), libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libpam-runtime, libpam-modules (>= 1.1.8-1)
+Breaks: util-linux (<< 2.32-0.2~)
+Conflicts: amavisd-new (<< 2.3.3-8), backupninja (<< 0.9.3-5), echolot (<< 2.1.8-4), gnunet (<< 0.7.0c-2), python-4suite (<< 0.99cvs20060405-1)
+Conffiles:
+ /etc/login.defs c92ea31d5ac50ae3e5d33d24f1e70983
+ /etc/pam.d/login 1fd6cb4d4267a68148ee9973510a9d3e
+ /etc/securetty d0124b1d2fb22d4ac9a91aa02ae6d6db
+Description: system login tools
+ These tools are required to be able to login and use your system. The
+ login program invokes your user shell and enables command execution. The
+ newgrp program is used to change your effective group ID (useful for
+ workgroup type situations). The su program allows changing your effective
+ user ID (useful being able to execute commands as another user).
+Homepage: https://github.com/shadow-maint/shadow
+
+Package: make
+Status: install ok unpacked
+Priority: optional
+Section: devel
+Installed-Size: 1296
+Maintainer: Manoj Srivastava <srivasta@debian.org>
+Architecture: amd64
+Multi-Arch: allowed
+Source: make-dfsg
+Version: 4.2.1-1.2
+Replaces: make-guile
+Depends: libc6 (>= 2.27)
+Suggests: make-doc
+Conflicts: make-guile
+Description: utility for directing compilation
+ GNU Make is a utility which controls the generation of executables
+ and other target files of a program from the program's source
+ files. It determines automatically which pieces of a large program
+ need to be (re)created, and issues the commands to (re)create
+ them. Make can be used to organize any task in which targets (files)
+ are to be automatically updated based on input files whenever the
+ corresponding input is newer --- it is not limited to building
+ computer programs. Indeed, Make is a general purpose dependency
+ solver.
+Homepage: https://www.gnu.org/software/make/
+
+Package: mawk
+Status: install ok installed
+Priority: required
+Section: interpreters
+Installed-Size: 183
+Maintainer: Steve Langasek <vorlon@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Source: mawk (1.3.3-17)
+Version: 1.3.3-17+b3
+Provides: awk
+Pre-Depends: libc6 (>= 2.14)
+Description: a pattern scanning and text processing language
+ Mawk is an interpreter for the AWK Programming Language. The AWK
+ language is useful for manipulation of data files, text retrieval and
+ processing, and for prototyping and experimenting with algorithms. Mawk
+ is a new awk meaning it implements the AWK language as defined in Aho,
+ Kernighan and Weinberger, The AWK Programming Language, Addison-Wesley
+ Publishing, 1988. (Hereafter referred to as the AWK book.) Mawk conforms
+ to the POSIX 1003.2 (draft 11.3) definition of the AWK language
+ which contains a few features not described in the AWK book, and mawk
+ provides a small number of extensions.
+ .
+ Mawk is smaller and much faster than gawk. It has some compile-time
+ limits such as NF = 32767 and sprintf buffer = 1020.
+
+Package: mount
+Status: install ok installed
+Priority: required
+Section: admin
+Installed-Size: 418
+Maintainer: LaMont Jones <lamont@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Source: util-linux
+Version: 2.33.1-0.1
+Replaces: bash-completion (<< 1:2.1-4.3~)
+Depends: util-linux (>= 2.29.2-3~)
+Pre-Depends: libblkid1 (>= 2.17.2), libc6 (>= 2.17), libmount1 (>= 2.33), libselinux1 (>= 2.6-3~), libsmartcols1 (>= 2.33)
+Suggests: nfs-common (>= 1:1.1.0-13)
+Breaks: bash-completion (<< 1:2.1-4.3~)
+Description: tools for mounting and manipulating filesystems
+ This package provides the mount(8), umount(8), swapon(8),
+ swapoff(8), and losetup(8) commands.
+Important: yes
+
+Package: ncurses-base
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: misc
+Installed-Size: 368
+Maintainer: Craig Small <csmall@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: ncurses
+Version: 6.1+20181013-2+deb10u2
+Provides: ncurses-runtime
+Breaks: bash-static (<< 4.4.18-1.1), libmono-corlib4.5-cil (<< 4.6.2.7+dfsg-2), libslang2 (<< 2.3.1a-3), libtinfo5 (<< 6.1), libunibilium0 (<< 2), libunibilium4 (<< 2.0.0-3), zsh-static (<< 5.4.2-4)
+Conffiles:
+ /etc/terminfo/README 45b6df19fb5e21f55717482fa7a30171
+Description: basic terminal type definitions
+ The ncurses library routines are a terminal-independent method of
+ updating character screens with reasonable optimization.
+ .
+ This package contains terminfo data files to support the most common types of
+ terminal, including ansi, dumb, linux, rxvt, screen, sun, vt100, vt102, vt220,
+ vt52, and xterm.
+Homepage: https://invisible-island.net/ncurses/
+
+Package: ncurses-bin
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: utils
+Installed-Size: 616
+Maintainer: Craig Small <csmall@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Source: ncurses
+Version: 6.1+20181013-2+deb10u2
+Pre-Depends: libc6 (>= 2.14), libtinfo6 (>= 6.1)
+Description: terminal-related programs and man pages
+ The ncurses library routines are a terminal-independent method of
+ updating character screens with reasonable optimization.
+ .
+ This package contains the programs used for manipulating the terminfo
+ database and individual terminfo entries, as well as some programs for
+ resetting terminals and such.
+Homepage: https://invisible-island.net/ncurses/
+
+Package: passwd
+Status: install ok installed
+Priority: required
+Section: admin
+Installed-Size: 2591
+Maintainer: Shadow package maintainers <pkg-shadow-devel@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Source: shadow
+Version: 1:4.5-1.1
+Replaces: manpages-tr (<< 1.0.5), manpages-zh (<< 1.5.1-1)
+Depends: libaudit1 (>= 1:2.2.1), libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libselinux1 (>= 1.32), libsemanage1 (>= 2.0.3), libpam-modules
+Conffiles:
+ /etc/cron.daily/passwd db990990933b6f56322725223f13c2bc
+ /etc/default/useradd cc9f9a7713ab62a32cd38363d958f396
+ /etc/pam.d/chfn 4d466e00a348ba426130664d795e8afa
+ /etc/pam.d/chpasswd 9900720564cb4ee98b7da29e2d183cb2
+ /etc/pam.d/chsh a6e9b589e90009334ffd030d819290a6
+ /etc/pam.d/newusers 1454e29bfa9f2a10836563e76936cea5
+ /etc/pam.d/passwd eaf2ad85b5ccd06cceb19a3e75f40c63
+Description: change and administer password and group data
+ This package includes passwd, chsh, chfn, and many other programs to
+ maintain password and group data.
+ .
+ Shadow passwords are supported.  See /usr/share/doc/passwd/README.Debian
+Homepage: https://github.com/shadow-maint/shadow
+
+Package: perl-base
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: perl
+Installed-Size: 10136
+Maintainer: Niko Tyni <ntyni@debian.org>
+Architecture: amd64
+Source: perl
+Version: 5.28.1-6
+Replaces: libfile-path-perl (<< 2.15), libfile-temp-perl (<< 0.2304), libio-socket-ip-perl (<< 0.39), libscalar-list-utils-perl (<< 1:1.50), libsocket-perl (<< 2.027), libxsloader-perl (<< 0.30), perl (<< 5.10.1-12), perl-modules (<< 5.20.1-3)
+Provides: libfile-path-perl (= 2.15), libfile-temp-perl (= 0.2304), libio-socket-ip-perl (= 0.39), libscalar-list-utils-perl (= 1:1.50), libsocket-perl (= 2.027), libxsloader-perl (= 0.30), perlapi-5.28.0, perlapi-5.28.1
+Pre-Depends: libc6 (>= 2.28), dpkg (>= 1.17.17)
+Suggests: perl, sensible-utils
+Breaks: amanda-common (<< 1:3.3.9-2), backuppc (<< 3.3.1-2), debconf (<< 1.5.61), dh-haskell (<< 0.3), intltool (<< 0.51.0-4), libexception-class-perl (<< 1.42), libfile-path-perl (<< 2.15), libfile-spec-perl (<< 3.7400), libfile-temp-perl (<< 0.2304), libio-socket-ip-perl (<< 0.39), libsbuild-perl (<< 0.67.0-1), libscalar-list-utils-perl (<< 1:1.50), libsocket-perl (<< 2.027), libxsloader-perl (<< 0.30), mailagent (<< 1:3.1-81-2), perl (<< 5.28.1~), perl-modules (<< 5.28.1~), slic3r (<< 1.2.9+dfsg-6.1), slic3r-prusa (<< 1.37.0+dfsg-1.1), texinfo (<< 6.1.0.dfsg.1-8)
+Conflicts: defoma (<< 0.11.12), doc-base (<< 0.10.3), mono-gac (<< 2.10.8.1-3), safe-rm (<< 0.8), update-inetd (<< 4.41)
+Description: minimal Perl system
+ Perl is a scripting language used in many system scripts and utilities.
+ .
+ This package provides a Perl interpreter and the small subset of the
+ standard run-time library required to perform basic tasks. For a full
+ Perl installation, install "perl" (and its dependencies, "perl-modules-5.28"
+ and "perl-doc").
+Homepage: http://dev.perl.org/perl5/
+
+Package: readline-common
+Status: install ok installed
+Priority: important
+Section: utils
+Installed-Size: 89
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: readline
+Version: 7.0-5
+Replaces: libreadline-common, libreadline4 (<< 4.3-16), libreadline5 (<< 5.0-11)
+Depends: dpkg (>= 1.15.4) | install-info
+Suggests: readline-doc
+Conflicts: libreadline-common, libreadline5 (<< 5.0-11)
+Description: GNU readline and history libraries, common files
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+
+Package: sbcl
+Status: install ok unpacked
+Priority: optional
+Section: lisp
+Installed-Size: 45747
+Maintainer: Debian Common Lisp Team <debian-common-lisp@lists.debian.org>
+Architecture: amd64
+Version: 2:1.4.16-2
+Provides: lisp-compiler, sbcl-fasl-loader-78
+Depends: libc6 (>= 2.28), zlib1g (>= 1:1.1.4)
+Recommends: binfmt-support
+Suggests: sbcl-doc, sbcl-source, slime
+Breaks: cl-asdf (<< 2:3.1.5)
+Conffiles:
+ /etc/sbclrc newconffile
+Description: Common Lisp compiler and development system
+ SBCL is a development environment for the ANSI Common Lisp language.
+ It provides a native-code compiler and an integrated debugger, as well
+ as all the features in the ANSI specification.
+ .
+ SBCL also contains other extensions to the ANSI specification, including
+ a foreign-function interface, a pseudo-server API, user-extensible
+ stream functionality, a Meta-Object Protocol, and an ability to run
+ external processes.
+ .
+ To browse SBCL source definitions with development environments,
+ install the sbcl-source package. For documentation on SBCL's usage
+ and internals, the package sbcl-doc is provided.
+Homepage: http://www.sbcl.org
+
+Package: sed
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: utils
+Installed-Size: 883
+Maintainer: Clint Adams <clint@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Version: 4.7-1
+Pre-Depends: libacl1 (>= 2.2.51-8), libc6 (>= 2.14), libselinux1 (>= 1.32)
+Description: GNU stream editor for filtering/transforming text
+ sed reads the specified files or the standard input if no
+ files are specified, makes editing changes according to a
+ list of commands, and writes the results to the standard
+ output.
+Homepage: https://www.gnu.org/software/sed/
+
+Package: sysvinit-utils
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: admin
+Installed-Size: 131
+Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+Architecture: amd64
+Multi-Arch: foreign
+Source: sysvinit
+Version: 2.93-8
+Replaces: initscripts (<< 2.88dsf-59.5)
+Depends: init-system-helpers (>= 1.25~), util-linux (>> 2.28-2~), libc6 (>= 2.14)
+Breaks: systemd (<< 215)
+Description: System-V-like utilities
+ This package contains the important System-V-like utilities.
+ .
+ Specifically, this package includes:
+ killall5, pidof
+Homepage: http://savannah.nongnu.org/projects/sysvinit
+
+Package: tar
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: utils
+Installed-Size: 2884
+Maintainer: Bdale Garbee <bdale@gag.com>
+Architecture: amd64
+Multi-Arch: foreign
+Version: 1.30+dfsg-6
+Replaces: cpio (<< 2.4.2-39)
+Pre-Depends: libacl1 (>= 2.2.23), libc6 (>= 2.17), libselinux1 (>= 1.32)
+Suggests: bzip2, ncompress, xz-utils, tar-scripts, tar-doc
+Breaks: dpkg-dev (<< 1.14.26)
+Conflicts: cpio (<= 2.4.2-38)
+Description: GNU version of the tar archiving utility
+ Tar is a program for packaging a set of files as a single archive in tar
+ format.  The function it performs is conceptually similar to cpio, and to
+ things like PKZIP in the DOS world.  It is heavily used by the Debian package
+ management system, and is useful for performing system backups and exchanging
+ sets of files with others.
+Homepage: https://www.gnu.org/software/tar/
+
+Package: tzdata
+Status: install ok installed
+Priority: required
+Section: localization
+Installed-Size: 3034
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Version: 2019c-0+deb10u1
+Replaces: libc0.1, libc0.3, libc6, libc6.1
+Provides: tzdata-buster
+Depends: debconf (>= 0.5) | debconf-2.0
+Description: time zone and daylight-saving time data
+ This package contains data required for the implementation of
+ standard local time for many representative locations around the
+ globe. It is updated periodically to reflect changes made by
+ political bodies to time zone boundaries, UTC offsets, and
+ daylight-saving rules.
+Homepage: https://www.iana.org/time-zones
+
+Package: unzip
+Status: install ok unpacked
+Priority: optional
+Section: utils
+Installed-Size: 566
+Maintainer: Santiago Vila <sanvila@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Version: 6.0-23+deb10u1
+Depends: libbz2-1.0, libc6 (>= 2.14)
+Suggests: zip
+Description: De-archiver for .zip files
+ InfoZIP's unzip program. With the exception of multi-volume archives
+ (ie, .ZIP files that are split across several disks using PKZIP's /& option),
+ this can handle any file produced either by PKZIP, or the corresponding
+ InfoZIP zip program.
+ .
+ This version supports encryption.
+Homepage: http://www.info-zip.org/UnZip.html
+
+Package: util-linux
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: utils
+Installed-Size: 4327
+Maintainer: LaMont Jones <lamont@debian.org>
+Architecture: amd64
+Multi-Arch: foreign
+Version: 2.33.1-0.1
+Replaces: bash-completion (<< 1:2.8), initscripts (<< 2.88dsf-59.2~), login (<< 1:4.5-1.1~), mount (<< 2.29.2-3~), s390-tools (<< 2.2.0-1~), setpriv (<< 2.32.1-0.2~), sysvinit-utils (<< 2.88dsf-59.1~)
+Depends: fdisk, login (>= 1:4.5-1.1~)
+Pre-Depends: libaudit1 (>= 1:2.2.1), libblkid1 (>= 2.31.1), libc6 (>= 2.25), libcap-ng0 (>= 0.7.9), libmount1 (>= 2.25), libpam0g (>= 0.99.7.1), libselinux1 (>= 2.6-3~), libsmartcols1 (>= 2.33), libsystemd0, libtinfo6 (>= 6), libudev1 (>= 183), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Suggests: dosfstools, kbd | console-tools, util-linux-locales
+Breaks: bash-completion (<< 1:2.8), grml-debootstrap (<< 0.68), mount (<< 2.29.2-3~), s390-tools (<< 2.2.0-1~), setpriv (<< 2.32.1-0.2~), sysvinit-utils (<< 2.88dsf-59.4~)
+Conffiles:
+ /etc/default/hwclock 3916544450533eca69131f894db0ca12
+ /etc/init.d/hwclock.sh 1ca5c0743fa797ffa364db95bb8d8d8e
+ /etc/pam.d/runuser b8b44b045259525e0fae9e38fdb2aeeb
+ /etc/pam.d/runuser-l 2106ea05877e8913f34b2c77fa02be45
+ /etc/pam.d/su ce6dcfda3b190a27a455bb38a45ff34a
+ /etc/pam.d/su-l 756fef5687fecc0d986e5951427b0c4f
+Description: miscellaneous system utilities
+ This package contains a number of important utilities, most of which
+ are oriented towards maintenance of your system. Some of the more
+ important utilities included in this package allow you to view kernel
+ messages, create new filesystems, view block device information,
+ interface with real time clock, etc.
+
+Package: zlib1g
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 174
+Maintainer: Mark Brown <broonie@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: zlib
+Version: 1:1.2.11.dfsg-1
+Provides: libz1
+Depends: libc6 (>= 2.14)
+Breaks: libxml2 (<< 2.7.6.dfsg-2), texlive-binaries (<< 2009-12)
+Conflicts: zlib1 (<= 1:1.0.4-7)
+Description: compression library - runtime
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes the shared library.
+Homepage: http://zlib.net/
+
+Package: zlib1g-dev
+Status: install ok unpacked
+Priority: optional
+Section: libdevel
+Installed-Size: 446
+Maintainer: Mark Brown <broonie@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: zlib
+Version: 1:1.2.11.dfsg-1
+Provides: libz-dev
+Depends: zlib1g (= 1:1.2.11.dfsg-1), libc6-dev | libc-dev
+Conflicts: zlib1-dev
+Description: compression library - development
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes the development support
+ files.
+Homepage: http://zlib.net/
+
+                                                                                                                                                                                                                                                                                                                        var/lib/dpkg/triggers/                                                                              0040755 0000000 0000000 00000000000 13637241000 013355  5                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        var/lib/dpkg/triggers/Lock                                                                          0100600 0000000 0000000 00000000000 13644401764 014160  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        var/lib/dpkg/updates/                                                                               0040755 0000000 0000000 00000000000 13644401765 013212  5                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        var/log/                                                                                            0040755 0000000 0000000 00000000000 13644401764 010632  5                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        var/log/alternatives.log                                                                            0100644 0000000 0000000 00000000603 13644401764 014032  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        update-alternatives 2020-04-11 17:52:52: run with --quiet --install /usr/bin/awk awk /usr/bin/gawk 10 --slave /usr/share/man/man1/awk.1.gz awk.1.gz /usr/share/man/man1/gawk.1.gz --slave /usr/bin/nawk nawk /usr/bin/gawk --slave /usr/share/man/man1/nawk.1.gz nawk.1.gz /usr/share/man/man1/gawk.1.gz
+update-alternatives 2020-04-11 17:52:52: link group awk updated to point to /usr/bin/gawk
+                                                                                                                             var/log/apt/                                                                                        0040755 0000000 0000000 00000000000 13644401744 011414  5                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        var/log/apt/eipp.log.xz                                                                             0100644 0000000 0000000 00000015124 13644401744 013514  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        ı7zXZ  æÖ´F !   t/å£àvM] )J'HÕhˆTZÛ„UÙ‘ÑÌ|yöÚûya’îõ˜hü×†\Ø¬ğ>x2u0Ä	" ìàÅ~¸6b8m¾ïğMÛK¸·Ş'±,ù¢0¿å/úÍ[ùéŒ"ÕQ¬ñäÙÔõøvü	B„î(ó#Bı 
+~óKrš×ºº®íŞÏ2ŞØq›œµiæ}KşG;¼éò3Ç}™6zaöğöÅU²Ãf	€àµC¢g¨iAï%±ß
+¾^0'¶{ào>«ó9<ÜƒíE4A¦‚!ÅL.aˆ Ğ–ócÜïçY–JílUÖ¨áyW´Rçb‘— vGO¯xG!¼ÌûEŒç)’ZÀÇè£F<÷¾)vPmkc=°WÉmû»Šac%“—xîçÏ¨´?ãµBÆàf× ®¼aaÀ¤Í8Ã´‘ş²BƒÌJ$Ñj¯ËìĞaî‘hB-#Ôœuzïàå÷ùTË¥©D]ü=Áÿæ´-$÷íñ’cMJG…
+ÀìÙ¸G˜Äd—Lôg#Wh]Ôk/"w-§‚rçâuX¨±ø¡®~'ëÓ'»Ó\YÌ†Üæ­]›Ğä2k‡°ú`lÈÎbŠùd»ÁiÔ9-áóŸ)’¸ßX}oñºIw(°UºB>­^ıäğ_˜¥‰G!¾Àa¸ÉQ†:ºkû0»™¯€K_¨ÁĞ´Ú+}Wg·0— å™E,VºrY:ú£µØ¼ 7?×Òº¸“[‡ã¯xpcT¶ĞÑúŞı1ßBƒïŒ4ŸÜaàÓüCÇÓïóz9”R"÷KuÙj/D“Œ¸IúYáÂ]8@;
+O…œcyüc«Íµ­ŞİAPXÍ ûO'“¨0”Ó O®%¥[Áµmå“‰ÒBsai0ÇxÏÄ{¾ùoÃ’÷ cÕ÷Â÷kDÜ¼›â;¤!¥MjÙ‰¨aI×ç*¢zñ½k‚`~¾´+ˆ™\.©É3xa6Cı!dF‚_Ÿ];Öí{6Åƒuü"äæÔ~FÏ“j
+k±N¼äV¦‹¯¾Uzídf&°çpò‹På“x	€©<d=–éDGx†¨š\ku^d©(–›sYIQjÚ“]ğ\$×“k¹#ôæq¡'çPmŠÆÃèTÂPˆkéù“S)·¿àÜˆÕæ¨<èÅiXª“À*Œ«"qéç?i}ÍÏÜ"?dcg>\_WŸş‚Uvµ›ìh6›ğLNK¦hyêÄd*ğ˜õ®ÈW2¾hæYU	@aî«t°ÀG0×}fâ6°øö`wqL‘^®_§ôÈ;€f[¥HzÔfÄñ­|¤ß9#Ë°UYŸ0ÙÇ”îjÄ½şŞÔuê”åkíˆ¼Ú~Ş‚t£¡üÇ]¥4Ş¬InFë~:Ìâ!ıé,İpÚ`ZW§³gïğ„¿ú›’²³šæ5Â«öêˆ§û³`áÄÑ²»Ó_Ñ®DúI
+‰ª¹×nˆ0‚Ë;P·À~A$NU ¨°»ïR;¿ÙZëûîœˆu¦4”ñ¬
+#çĞç!1Ÿˆñ©¼¯‰íxË,‡]’jŒÎ—Øİ†)o:ŠvÓ-]Àø!5@sÊeÕãzi¿¼¿£®úş‰jb{~ Â‰öÏ±’46N Î×ã¡5ğ™÷¯Ó8H$'w:ö±ıPü]»Ú†+z™…:Œa[øoƒmà	ğfòÃ`¬ßSq* ØÒ8Øß7h´¼Og*^òd®v’+OŸ_¢³Ó,lm½üÆ5Ü~ù¨Ğ$z'€Éj”Ù4¨I Ë‰!¯“ø¬,MeŠ.˜ê¡ ëË€ kBd]­í	p t;ƒUdáYŒêÚàq®İBŒŠWñÁé/yÙö{ÙAøÍ±h/&h;°Hló`yL·C ?…"Fè{I
+“àŸ–iü
+nDz.šÎ|,Pq¦–nÀ‹¡æ+ÍÿùæÅ ìwš|ÔB¢[(|êñ^Jï³4?“€ÉK°®¶+a¢P§AºâŒ	÷ˆoiBvxåIa6Gjf«åz(ñF tšÙó}
+rªÔ?à¥lÚÔö˜·ÃMybLgˆ‘‹Y€åèßäĞX ësÍóh™€
+Tø‰åæ±%7C`ô©fã'¯&ëµ_Vs4ÅñÉ½ÓhÈÁ
+§ P»¡è;ëºØÅ_Cºƒ]éÓ¨VæˆF¢ÚcöîğëÙ&ã”XÒU¥ªh§X¤ğA÷*Œ±§^ŠYtÈ|dh j³ÏÉ¿™[š‡eÈñék&	ù‘û¨¼Wå{#Ô£DÎh€æ”«ÿ„›[æqUÒ(‡”ëÎrWc®”Ër¶]éÀ‰/¿i~¶S¯]Ÿ)gíåHmªhDé/EÌŸ—3†í^ısøìyFGl&[Çß(uãßd'Ğê1û”ô8Ô}–ˆWÕÈ­=#-ÿn\%í
+‡5-Ö²ùõ¤ÎLŸø‘h×¼c1Ñ{ÏZw[_W3Sÿ¦Bıré1¸Ï™ £ÿg¶¢JmdÊ³Ş%·}ƒjARò§‰ÚfYäŠ£~Ş;İÂ²’`yĞ4IÜNF¿2º0åx®Èÿä‚â&g£Ñ£ÔÂ„`*É}1©ĞJö1°.%¡…=ìfƒ³«G¥Â<Z6{iµZ2Ê”Åf÷±ît2q¡+Ùi«bp3úóÎo,wğXw/4fÔ?8øuIaÚ×ßÉ'$¼Zå™Ëş™>lßatîéõ°	ìâŸ3}Ü‹¢TÁyf+a²§µ¬[ßşõ¢1A™Ïà*;,åÒ
+¢„‚"º–XÍ±ãÅ²¸qQˆ:E?!B–ÒRt€âUxßD—@–fÓñö÷·ÌşÖuO![¶õ0D]wjâÙŠzËÅ¡ñ*ÖZ¶’şw8ZàOÛT3,/YT¯(
+ySñîÁ|ŒîÀ`ªçÚmoŸ©Ò¸Ošcëûd¼ ‰Ğ8mêe%©ã‚e@u0¤Ùäúÿ„3Ç£T_Q8²#sş$dæTÕ‰§^·odjÖÉG¸Ğ—x\ËŸ7bò.‹í§¿[o)gbß”†FÏì"öªƒAdÙ
+æ
+bè [@¦1Ÿ#„†4±B±µ“Ü›Ô­Ÿdacµ³ïõyEjIBS’ øá
+o™WKªvá\æ•[š½ûY¥Š®lúÄ,	ì~ ›°QW–¢ÎÑ¸‘¶¿4mRr sı‡>çF†5ÉX-×©(¸[!z)µ91ŞÌÅmßiŠ„{?·-Ñ#ÍÑ–Y(£Î	KÌÌƒ—¯€xP=H•S80*	ûO%÷|Õlúv7sWJàŸSNÏÁóTš®Ì#¢Ÿ‰;´„7=¯'Ÿ&Ø—ĞgX¸šæ.£2Ÿö×Ät¸ÃI‚K˜±Aë„°n&Š‡VÌ„mmÆvÈØ÷¢x-A7Ù:ïD6€eãsüìW¦¸íY@öêÆ>m_(
+áôû>ÕDšáP½Éñ­5tyx|´/&"ÖÙ¿*;Ò9_[Pékoµ8F2ÓJÖ	0I§˜ÚñŠÆÄíÀãMëYi,OÂò~-9QjÀiÊÂşŸøeÖ±˜¶²zY ‰ŠF@Ñº	q¿]H2ƒ9"y|uY¸lZÙˆëqW¿1èFâXBM­ŞÙï`ZK¨ÿÑoşÿ4î’“Í6Œ/ªÍÎ¾“#1éî³Æ”¥`c+Rî›¿¡mUU‡Ê0>ºUA…ò¿‹K=™›4”éÖ½d!üç^Êz|nFGÍäŒÃA\qKö¼‡ßyf$é ûì©E=DJ*¯nœ`Æ&BPùVÍFQB2µ#âø7¼6G:#–{CñEğ40Ã¦o<Í‹‡ú¬e\{Sg>2°“R8» ,kz	ÉŸ,­U4CTØ³Ù<ê£ú?¦,óÆ}ø_6.fiq¾Ê’‘%ç°.ğóu°–¾ìP?€BÈX!wİLP•¸0~•fÙÇŒ^ª½xŠ½7éŒ+Ğ6GAS­¬&Ì{$/9liöŸn®oã/ŠQÎĞÈŸ9DÒ5>0àQ@5†ÈÀ]j÷ h”æ±ç¹|âæÄÿÒX¯ÀÌø®ó‰
+fÑcì»|ìÒHÇÚØÕÖ÷’Xe,¶EÇGÌ§´¯cgÈšÎâ«ªñT<tröš(x}Ö¤£ˆkh<Ÿ¾}ª¦·´H‘j5å®™zºG1Ïâw+˜>5„½9ó"r2L Ñ¶@¯¶6, #,t|H„BOéÓ<·²P/¹åb_qİ“*¥qü¹‘+²|ÑlşÆN¹µñÄ´¬à¥CÓ‰b±GÅMö¯5è[®(¶È·k•F0ÏRw†õ¶àå*6ÒÃŞZw0‡i.’=S˜ŞäÇwïõrµæ
+ebP	Ø¿à°òı÷é|âˆÛû?B,ME†8®„í'>4 wñ¡T4cØÀÇxjÇáLÑƒ\š¬y€çÿ3ß{rvUáô)¿ÄõY,w›á¿`Ïí°iÄrëµ€›
+ÆãÂ09Y?™¦]n„İıÑ>rx”s¼ãªó“©=¯gEYívy+>íˆ}W·v­-%qCç{VÜ´PÿGÄ•óLGÏİê«Ï‹U7İz•”?¤ñõ^§=qI|9Çx	ÓËAHæMÔY:Ã¨I3á¯_üâ[Ó†€;´+ Å¸ólñÉ¶wp¾öµV˜ÛÒ¥&Ÿ)f·Í‘ƒÿGs‡@úêmGÍ³ãf=¢%XÈ¡×C.`h(a7É²¼hll`LßëGFûUœö…¨Ì`–óIñôÔÄ×ºZÈØÜ kH±ƒ¿çhã{Ü˜ˆÔ:õXseİ*DQŸç3Ë„êMj§Y™[Úb×ÆõM %gŠ,F“iºgWªm#áw*|FGÓ&Hu“mAm:êû#ÎS%	yÛÈ®	<4hä¸h…{ø5.bešÍ®"K,,%IB©:Q)w÷¦XL?ouNÎH|’aèxpi LªaD€•jı†ÛğñE‘Òà„3/¿¿äuúa”„­C×Sö^2–ÑPÍ5Cƒ;ˆ§®§£‘iôıbüÁí nJßµc46ÙK9kŞ­ÏÎ·t~‹¶ Tr?4ÜLğ]Õİ@ë–NlˆÓûüoÙÈ,€3eqptÜÔş€¿æ^\€è‡–™ùëU%?&SíoÔÓÖ¤jv}Ç…gÊÊói›¦²$B}ÎÙbDÍ®/­“$9E¨‰“†8è?7İ‡fóú …Ofäd¨,0DİÑÇ¢PwÅˆ ææÎl-ËÈ·¹·¬òü€Ñ”ı®‰\¯K´SºúS“.;jCâ€=>C´êà²Â/º{ÏíFDÍâœˆl#üe–F‚³ñëTU5·òêÅxg"îSëÌ¹|ÌÃş¸lVş¼çœÿ-F…Îyñ°u:²>ßbüÈ÷ÉëÄ'oÓ=Û])µ–6hC’¡¯c¿±öw6
+­1ñièCáw=â)–ê6C¦Ó‡=(Î!_œ“½Tµylü<¢Ÿ,ÜËÃÈùÈµ
+$‰½‹ĞİŒ0DüŞ®˜_"å(õñ­ÔgW·Û»!øšš2=è;©Sij¢m?’b<0rÍ–÷ç’q®çÒ÷šH§Ì>SÏY/¯™ì?X»µR«èClÒÙ’Ñß²ıtÏÂÈµ|óÙßÕù6 Sv!:¡1ŞänMV.bsâ¤g…ª6 ¼ÜÅBù…ªf6NJPÃ5'š†$ÄŠtàmy0	4´¤§l‹ıH«T‹çãn/‹4ö²ógÅÇ&©¤£H~(D¯§U‡œ›Y3•°ıà&«+{o— “tÕ_geB;×üú*O–B%És…îüš>ğ¥hù¶úÇÚmZÅŒü¥lô&Ñ›cùö&î=ÇæÛc·û;ö
+?ÉëÖÚµøx:‘‡ªx)ˆ‹­Ú±7;$şKè†nA_»£;«br$$â„{ cõ™	ŸüÒMl
+D~×¶¹?Â«ËVŞwS$['pju8¦¢fª`»Ääw¦g[<;oı&/Ç~h©¾‚K'©&æcCãUöôÔ.Çášiw¤Øl±Mrî¡—ûM¨¸ë·İ[ÇÜìG&ªcîDìP›=ªlÓYNœ &³•ğÒ6™O«Œ9.V©#÷VtM ×¥LtÆ˜gÀ;«•°Ù±ñ÷”ÿvÙÿí8ES¸"¸22À|ºŠÃ3ôuğzf—ÆU§ñmò”v§)iz¼LâÓµšæäq—ñÑo,µsÜğ\²­2/kıó6‰_ƒşïpÜôeŞ¾¦ÑB´yBS`Ê:¬Y…‚–¥Ñ•¯Iù‰éŸc°Ì±$õ¡W[õ\ èÒÄ8† Æ)ÛY½Ë%lß$î;´ª&È3ƒï1È3Ñˆ—PL”:Òÿ¼lÑs’©+¹±¹m{~Lo
+8Î72–ŞÊ]f˜šæ¤æıõ¸öÀ»RxK<úí-cLÑ¬hø“sŒÓat$Ä+öNâ°ÌAKBšäê¾
+í¾x™´¬Ó›7áé6%DÓç-ëa:*B7­¬Äw§›Ì¬6MæÁÕà‹¹…,e”UÅˆ¢Ù Éá°dİIé¥Ã€å˜h(ó‚ÒÅmª¸5^ìn	h<ô"†5FöÂáO+1é}øSÏØÄü3AH(E)tßmP(Ñ¦ä{Hm»†"*¬ÆõÆIùjHÇ)Déú \_ñÂ0lZšñĞ¥læ¯<è@Av€zk3Ùc°E Qê-<ÈiÃ‹l-ÿzzùüğìÇˆßCâÌuŸU%wŞÊ\ìy£ø$î×ÊÓEŒó`#9ÁhÙ
+¾®Ñºúò‰?ÿõµ,õºˆæD”•´Ä[1ËÓ±éQq©•‡^åœä:öÆöÇ4ÉØl+•+lä»ÁØù'’ı!¿N_³yµ™B~­Ø¸/v®õàd†a´Œ6x‡á3…/BBãKRö‘É¦¾H¸ó¢b×äl/F•Öë9ôo¦æÍïsEùÖ36C
+áÚ¢w-÷†*„b9œƒŸfñšü«N6š„ ¥Kª=€lD-)tÆö¼Û’Ÿ/A
+ÇÔ«^ú‡´ xF– =N” M­kU*2ÈßXå©ÑUbäÿiF{oXéxÆ}TPpL¿âHî¥¼ˆSChŒUy
+Z.«+®%ÚÒk¹:[%Ep0Ê×*ó£&õŠâÖ<2>y|«ª—!¨ ;;:ğ×cãßºÕB‡”+&n6ô	8…àá)ÏUñ¬‰I™²eıï€jhÁÙPJwH¾D*ğĞrîÄ=³*ÆR-øØ<ìréÙYÏş–$U1ğOk1-4Ñ‡=RòÃ‰ypdÎIÿ |uÀ1÷	m­]pT<(’@'Î¦™Ái¨T¨ƒF³Ë¯øAÀ‰±Ü:¦9£‰6Pw×Ğ‰Ìv:O“AjL¥­Õ_ø•Ş~¨¤[y^	æ™’·zø0ìd}|÷¿©²}}ü˜vŒÜâ©LX’àÊvdû‰·à1+Â,ª¬ïZç&ø6ËKkGr¾,<fæ^¾‰h*çU6,FTaj¾
+BPâ§U¸Íšî÷)/î¼^ÉÎİæÜcš¯g]‡•¿dÍ%M§E©ÜeeŞBZ§­÷ö‘t¶ca©‚yâ×–¥j”ÒnÒ
+†kŸ÷a—Îÿhpj[èK-Ğ‹øª¤VÍÇ£Ñ§’F™ûI3C´®¯¼2nŠÕ7“W±–‚0´PÊ‘Wª[ƒ’Ÿó/KËMóõ|DÉpùnŞËhYO_w?a$!ŒO8?q‡,RËÑà²"óÄT°‹ì¿şÓaÍ®!­lO#ˆoøW,šìƒØÇ¦i¬õ_4Ó¿/êêU2§¤_êq?AÍUÿO\HUrÇØÓ“Dÿ`³ÏÚç`ç¸ù{Úq†ğÔ•µ¸?Rrd›ÿqbv¤Sîò¶$¥ºæ¾aÒßkêÔ½úì3F{>#¹§ÜpcÎ—bk?¶A1ñIyìƒì‚$KC1¬1Å˜fÜ=2K|U¦«¸òP-_®™×ôüçJ–‹D0\¡ÑegÈ¼t"•§ÍFµÇ›Q¡®r
+®iS.Šöû„ºÜp½ŒEf8t¦3wÎJÆjq4
+®»·?TSÚı–Mz™U!ï²O†w[L­¬X9E¯ñoüÆ@|¼4aM+K_xïª‰ÌÚÃ¦[(O´áy´rSõÖbs(krsdã ıúX¡ìJ¾y„J ÁÂgû@4#ÜºãÔ>	J³fl©O'‘3 0¨ÁıF([Iá&º`»}áÛ@_æ1c† ëeµÂãt¬6?×ˆÂ\™Ü¢ğB£g·Î“sKë\€êR0~» ãÿèéÏ¥l'#Ï'õ‡Û†E6°âø#p˜gÔ°b¯	,Ø&×KJD@Ë¸úåL^¥ö”%¢tÍ	ëùˆ×à¦Øş?!pS]×ñdëĞÿç2BPÛ™ß)¾xl»Ï®^Å+¹>à'(áä· í­†3³“AóA<JlQ»Y¯!á¢wAø2‡T@ÎÚ½êgÍ=+ÎP±QŞwBu‡FÀã€«ip™é”M>bT,   ¸*lùuym ¯4Îì èÏP±Ägû    YZ                                                                                                                                                                                                                                                                                                                                                                                                                                            var/log/apt/history.log                                                                             0100644 0000000 0000000 00000003241 13644401766 013621  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        
+Start-Date: 2020-04-11  17:52:36
+Commandline: apt-get install -y --no-install-recommends curl freetds-dev gawk libsqlite3-dev libzip-dev make sbcl unzip
+Install: libssh2-1:amd64 (1.8.0-2.1, automatic), libkrb5-3:amd64 (1.17-3, automatic), libgssapi-krb5-2:amd64 (1.17-3, automatic), libnghttp2-14:amd64 (1.36.0-2+deb10u1, automatic), libsasl2-modules-db:amd64 (2.1.27+dfsg-1+deb10u1, automatic), linux-libc-dev:amd64 (4.19.98-1, automatic), libzip4:amd64 (1.5.1-4, automatic), libcurl4:amd64 (7.64.0-4+deb10u1, automatic), libct4:amd64 (1.00.104-1+deb10u1, automatic), libldap-2.4-2:amd64 (2.4.47+dfsg-3+deb10u1, automatic), libmpfr6:amd64 (4.0.2-1, automatic), libc6-dev:amd64 (2.28-10, automatic), libsqlite3-dev:amd64 (3.27.2-3), libpsl5:amd64 (0.20.2-2, automatic), libsqlite3-0:amd64 (3.27.2-3, automatic), gawk:amd64 (1:4.2.1+dfsg-1), libk5crypto3:amd64 (1.17-3, automatic), libsasl2-2:amd64 (2.1.27+dfsg-1+deb10u1, automatic), zlib1g-dev:amd64 (1:1.2.11.dfsg-1, automatic), readline-common:amd64 (7.0-5, automatic), librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2, automatic), libkrb5support0:amd64 (1.17-3, automatic), make:amd64 (4.2.1-1.2), libldap-common:amd64 (2.4.47+dfsg-3+deb10u1, automatic), libzip-dev:amd64 (1.5.1-4), libkeyutils1:amd64 (1.6-6, automatic), libreadline7:amd64 (7.0-5, automatic), unzip:amd64 (6.0-23+deb10u1), libsybdb5:amd64 (1.00.104-1+deb10u1, automatic), libc-dev-bin:amd64 (2.28-10, automatic), freetds-dev:amd64 (1.00.104-1+deb10u1), libssl1.1:amd64 (1.1.1d-0+deb10u2, automatic), sbcl:amd64 (2:1.4.16-2), curl:amd64 (7.64.0-4+deb10u1), freetds-common:amd64 (1.00.104-1+deb10u1, automatic), libsigsegv2:amd64 (2.12-2, automatic)
+End-Date: 2020-04-11  17:52:54
+                                                                                                                                                                                                                                                                                                                                                               var/log/apt/term.log                                                                                0100640 0000000 0000004 00000023100 13644401766 013063  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        
+Log started: 2020-04-11  17:52:36
+Selecting previously unselected package libmpfr6:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6457 files and directories currently installed.)
+Preparing to unpack .../libmpfr6_4.0.2-1_amd64.deb ...
+Unpacking libmpfr6:amd64 (4.0.2-1) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../readline-common_7.0-5_all.deb ...
+Unpacking readline-common (7.0-5) ...
+Selecting previously unselected package libreadline7:amd64.
+Preparing to unpack .../libreadline7_7.0-5_amd64.deb ...
+Unpacking libreadline7:amd64 (7.0-5) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Setting up libmpfr6:amd64 (4.0.2-1) ...
+Setting up readline-common (7.0-5) ...
+Setting up libreadline7:amd64 (7.0-5) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package gawk.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6501 files and directories currently installed.)
+Preparing to unpack .../00-gawk_1%3a4.2.1+dfsg-1_amd64.deb ...
+Unpacking gawk (1:4.2.1+dfsg-1) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../01-libkeyutils1_1.6-6_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6-6) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../02-libkrb5support0_1.17-3_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.17-3) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../03-libk5crypto3_1.17-3_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.17-3) ...
+Selecting previously unselected package libssl1.1:amd64.
+Preparing to unpack .../04-libssl1.1_1.1.1d-0+deb10u2_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1d-0+deb10u2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../05-libkrb5-3_1.17-3_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.17-3) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../06-libgssapi-krb5-2_1.17-3_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.17-3) ...
+Selecting previously unselected package libsasl2-modules-db:amd64.
+Preparing to unpack .../07-libsasl2-modules-db_2.1.27+dfsg-1+deb10u1_amd64.deb ...
+Unpacking libsasl2-modules-db:amd64 (2.1.27+dfsg-1+deb10u1) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Preparing to unpack .../08-libsasl2-2_2.1.27+dfsg-1+deb10u1_amd64.deb ...
+Unpacking libsasl2-2:amd64 (2.1.27+dfsg-1+deb10u1) ...
+Selecting previously unselected package libldap-common.
+Preparing to unpack .../09-libldap-common_2.4.47+dfsg-3+deb10u1_all.deb ...
+Unpacking libldap-common (2.4.47+dfsg-3+deb10u1) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Preparing to unpack .../10-libldap-2.4-2_2.4.47+dfsg-3+deb10u1_amd64.deb ...
+Unpacking libldap-2.4-2:amd64 (2.4.47+dfsg-3+deb10u1) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../11-libnghttp2-14_1.36.0-2+deb10u1_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.36.0-2+deb10u1) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../12-libpsl5_0.20.2-2_amd64.deb ...
+Unpacking libpsl5:amd64 (0.20.2-2) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../13-librtmp1_2.4+20151223.gitfa8646d.1-2_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../14-libssh2-1_1.8.0-2.1_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-2.1) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../15-libcurl4_7.64.0-4+deb10u1_amd64.deb ...
+Unpacking libcurl4:amd64 (7.64.0-4+deb10u1) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../16-curl_7.64.0-4+deb10u1_amd64.deb ...
+Unpacking curl (7.64.0-4+deb10u1) ...
+Selecting previously unselected package freetds-common.
+Preparing to unpack .../17-freetds-common_1.00.104-1+deb10u1_all.deb ...
+Unpacking freetds-common (1.00.104-1+deb10u1) ...
+Selecting previously unselected package libct4:amd64.
+Preparing to unpack .../18-libct4_1.00.104-1+deb10u1_amd64.deb ...
+Unpacking libct4:amd64 (1.00.104-1+deb10u1) ...
+Selecting previously unselected package libsybdb5:amd64.
+Preparing to unpack .../19-libsybdb5_1.00.104-1+deb10u1_amd64.deb ...
+Unpacking libsybdb5:amd64 (1.00.104-1+deb10u1) ...
+Selecting previously unselected package freetds-dev.
+Preparing to unpack .../20-freetds-dev_1.00.104-1+deb10u1_amd64.deb ...
+Unpacking freetds-dev (1.00.104-1+deb10u1) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../21-libc-dev-bin_2.28-10_amd64.deb ...
+Unpacking libc-dev-bin (2.28-10) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../22-linux-libc-dev_4.19.98-1_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.19.98-1) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../23-libc6-dev_2.28-10_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.28-10) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../24-libsqlite3-0_3.27.2-3_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.27.2-3) ...
+Selecting previously unselected package libsqlite3-dev:amd64.
+Preparing to unpack .../25-libsqlite3-dev_3.27.2-3_amd64.deb ...
+Unpacking libsqlite3-dev:amd64 (3.27.2-3) ...
+Selecting previously unselected package libzip4:amd64.
+Preparing to unpack .../26-libzip4_1.5.1-4_amd64.deb ...
+Unpacking libzip4:amd64 (1.5.1-4) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../27-zlib1g-dev_1%3a1.2.11.dfsg-1_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libzip-dev:amd64.
+Preparing to unpack .../28-libzip-dev_1.5.1-4_amd64.deb ...
+Unpacking libzip-dev:amd64 (1.5.1-4) ...
+Selecting previously unselected package make.
+Preparing to unpack .../29-make_4.2.1-1.2_amd64.deb ...
+Unpacking make (4.2.1-1.2) ...
+Selecting previously unselected package sbcl.
+Preparing to unpack .../30-sbcl_2%3a1.4.16-2_amd64.deb ...
+Unpacking sbcl (2:1.4.16-2) ...
+Selecting previously unselected package unzip.
+Preparing to unpack .../31-unzip_6.0-23+deb10u1_amd64.deb ...
+Unpacking unzip (6.0-23+deb10u1) ...
+Setting up libkeyutils1:amd64 (1.6-6) ...
+Setting up libpsl5:amd64 (0.20.2-2) ...
+Setting up gawk (1:4.2.1+dfsg-1) ...
+Setting up libssl1.1:amd64 (1.1.1d-0+deb10u2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.28.1 /usr/local/share/perl/5.28.1 /usr/lib/x86_64-linux-gnu/perl5/5.28 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.28 /usr/share/perl/5.28 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+Setting up libzip4:amd64 (1.5.1-4) ...
+Setting up unzip (6.0-23+deb10u1) ...
+Setting up libsqlite3-0:amd64 (3.27.2-3) ...
+Setting up libnghttp2-14:amd64 (1.36.0-2+deb10u1) ...
+Setting up linux-libc-dev:amd64 (4.19.98-1) ...
+Setting up libldap-common (2.4.47+dfsg-3+deb10u1) ...
+Setting up libkrb5support0:amd64 (1.17-3) ...
+Setting up libsasl2-modules-db:amd64 (2.1.27+dfsg-1+deb10u1) ...
+Setting up make (4.2.1-1.2) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libk5crypto3:amd64 (1.17-3) ...
+Setting up libsasl2-2:amd64 (2.1.27+dfsg-1+deb10u1) ...
+Setting up sbcl (2:1.4.16-2) ...
+Setting up libssh2-1:amd64 (1.8.0-2.1) ...
+Setting up libkrb5-3:amd64 (1.17-3) ...
+Setting up freetds-common (1.00.104-1+deb10u1) ...
+Setting up libc-dev-bin (2.28-10) ...
+Setting up libldap-2.4-2:amd64 (2.4.47+dfsg-3+deb10u1) ...
+Setting up libgssapi-krb5-2:amd64 (1.17-3) ...
+Setting up libcurl4:amd64 (7.64.0-4+deb10u1) ...
+Setting up libc6-dev:amd64 (2.28-10) ...
+Setting up curl (7.64.0-4+deb10u1) ...
+Setting up libsybdb5:amd64 (1.00.104-1+deb10u1) ...
+Setting up libsqlite3-dev:amd64 (3.27.2-3) ...
+Setting up libct4:amd64 (1.00.104-1+deb10u1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-1) ...
+Setting up libzip-dev:amd64 (1.5.1-4) ...
+Setting up freetds-dev (1.00.104-1+deb10u1) ...
+Processing triggers for libc-bin (2.28-10) ...
+Log ended: 2020-04-11  17:52:54
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                var/log/dpkg.log                                                                                    0100644 0000000 0000000 00000042260 13644401765 012264  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        2020-04-11 17:52:36 startup archives unpack
+2020-04-11 17:52:36 install libmpfr6:amd64 <none> 4.0.2-1
+2020-04-11 17:52:36 status triggers-pending libc-bin:amd64 2.28-10
+2020-04-11 17:52:36 status half-installed libmpfr6:amd64 4.0.2-1
+2020-04-11 17:52:36 status unpacked libmpfr6:amd64 4.0.2-1
+2020-04-11 17:52:36 install readline-common:all <none> 7.0-5
+2020-04-11 17:52:36 status half-installed readline-common:all 7.0-5
+2020-04-11 17:52:37 status unpacked readline-common:all 7.0-5
+2020-04-11 17:52:37 install libreadline7:amd64 <none> 7.0-5
+2020-04-11 17:52:37 status half-installed libreadline7:amd64 7.0-5
+2020-04-11 17:52:37 status unpacked libreadline7:amd64 7.0-5
+2020-04-11 17:52:37 install libsigsegv2:amd64 <none> 2.12-2
+2020-04-11 17:52:37 status half-installed libsigsegv2:amd64 2.12-2
+2020-04-11 17:52:37 status unpacked libsigsegv2:amd64 2.12-2
+2020-04-11 17:52:37 startup packages configure
+2020-04-11 17:52:37 configure libmpfr6:amd64 4.0.2-1 <none>
+2020-04-11 17:52:37 status unpacked libmpfr6:amd64 4.0.2-1
+2020-04-11 17:52:37 status half-configured libmpfr6:amd64 4.0.2-1
+2020-04-11 17:52:37 status installed libmpfr6:amd64 4.0.2-1
+2020-04-11 17:52:37 configure readline-common:all 7.0-5 <none>
+2020-04-11 17:52:37 status unpacked readline-common:all 7.0-5
+2020-04-11 17:52:37 status half-configured readline-common:all 7.0-5
+2020-04-11 17:52:37 status installed readline-common:all 7.0-5
+2020-04-11 17:52:37 configure libreadline7:amd64 7.0-5 <none>
+2020-04-11 17:52:37 status unpacked libreadline7:amd64 7.0-5
+2020-04-11 17:52:37 status half-configured libreadline7:amd64 7.0-5
+2020-04-11 17:52:37 status installed libreadline7:amd64 7.0-5
+2020-04-11 17:52:37 configure libsigsegv2:amd64 2.12-2 <none>
+2020-04-11 17:52:37 status unpacked libsigsegv2:amd64 2.12-2
+2020-04-11 17:52:37 status half-configured libsigsegv2:amd64 2.12-2
+2020-04-11 17:52:37 status installed libsigsegv2:amd64 2.12-2
+2020-04-11 17:52:37 startup archives unpack
+2020-04-11 17:52:37 install gawk:amd64 <none> 1:4.2.1+dfsg-1
+2020-04-11 17:52:37 status half-installed gawk:amd64 1:4.2.1+dfsg-1
+2020-04-11 17:52:38 status unpacked gawk:amd64 1:4.2.1+dfsg-1
+2020-04-11 17:52:38 install libkeyutils1:amd64 <none> 1.6-6
+2020-04-11 17:52:38 status half-installed libkeyutils1:amd64 1.6-6
+2020-04-11 17:52:38 status unpacked libkeyutils1:amd64 1.6-6
+2020-04-11 17:52:38 install libkrb5support0:amd64 <none> 1.17-3
+2020-04-11 17:52:38 status half-installed libkrb5support0:amd64 1.17-3
+2020-04-11 17:52:38 status unpacked libkrb5support0:amd64 1.17-3
+2020-04-11 17:52:38 install libk5crypto3:amd64 <none> 1.17-3
+2020-04-11 17:52:38 status half-installed libk5crypto3:amd64 1.17-3
+2020-04-11 17:52:38 status unpacked libk5crypto3:amd64 1.17-3
+2020-04-11 17:52:38 install libssl1.1:amd64 <none> 1.1.1d-0+deb10u2
+2020-04-11 17:52:38 status half-installed libssl1.1:amd64 1.1.1d-0+deb10u2
+2020-04-11 17:52:39 status unpacked libssl1.1:amd64 1.1.1d-0+deb10u2
+2020-04-11 17:52:39 install libkrb5-3:amd64 <none> 1.17-3
+2020-04-11 17:52:39 status half-installed libkrb5-3:amd64 1.17-3
+2020-04-11 17:52:39 status unpacked libkrb5-3:amd64 1.17-3
+2020-04-11 17:52:39 install libgssapi-krb5-2:amd64 <none> 1.17-3
+2020-04-11 17:52:39 status half-installed libgssapi-krb5-2:amd64 1.17-3
+2020-04-11 17:52:39 status unpacked libgssapi-krb5-2:amd64 1.17-3
+2020-04-11 17:52:40 install libsasl2-modules-db:amd64 <none> 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 status half-installed libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 status unpacked libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 install libsasl2-2:amd64 <none> 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 status half-installed libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 status unpacked libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:40 install libldap-common:all <none> 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 status half-installed libldap-common:all 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 status unpacked libldap-common:all 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 install libldap-2.4-2:amd64 <none> 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 status half-installed libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 status unpacked libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:40 install libnghttp2-14:amd64 <none> 1.36.0-2+deb10u1
+2020-04-11 17:52:40 status half-installed libnghttp2-14:amd64 1.36.0-2+deb10u1
+2020-04-11 17:52:40 status unpacked libnghttp2-14:amd64 1.36.0-2+deb10u1
+2020-04-11 17:52:40 install libpsl5:amd64 <none> 0.20.2-2
+2020-04-11 17:52:40 status half-installed libpsl5:amd64 0.20.2-2
+2020-04-11 17:52:40 status unpacked libpsl5:amd64 0.20.2-2
+2020-04-11 17:52:40 install librtmp1:amd64 <none> 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:40 status half-installed librtmp1:amd64 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:40 status unpacked librtmp1:amd64 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:41 install libssh2-1:amd64 <none> 1.8.0-2.1
+2020-04-11 17:52:41 status half-installed libssh2-1:amd64 1.8.0-2.1
+2020-04-11 17:52:41 status unpacked libssh2-1:amd64 1.8.0-2.1
+2020-04-11 17:52:41 install libcurl4:amd64 <none> 7.64.0-4+deb10u1
+2020-04-11 17:52:41 status half-installed libcurl4:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:41 status unpacked libcurl4:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:41 install curl:amd64 <none> 7.64.0-4+deb10u1
+2020-04-11 17:52:41 status half-installed curl:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:41 status unpacked curl:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:41 install freetds-common:all <none> 1.00.104-1+deb10u1
+2020-04-11 17:52:41 status half-installed freetds-common:all 1.00.104-1+deb10u1
+2020-04-11 17:52:41 status unpacked freetds-common:all 1.00.104-1+deb10u1
+2020-04-11 17:52:41 install libct4:amd64 <none> 1.00.104-1+deb10u1
+2020-04-11 17:52:41 status half-installed libct4:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:41 status unpacked libct4:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:42 install libsybdb5:amd64 <none> 1.00.104-1+deb10u1
+2020-04-11 17:52:42 status half-installed libsybdb5:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:42 status unpacked libsybdb5:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:42 install freetds-dev:amd64 <none> 1.00.104-1+deb10u1
+2020-04-11 17:52:42 status half-installed freetds-dev:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:42 status unpacked freetds-dev:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:42 install libc-dev-bin:amd64 <none> 2.28-10
+2020-04-11 17:52:42 status half-installed libc-dev-bin:amd64 2.28-10
+2020-04-11 17:52:42 status unpacked libc-dev-bin:amd64 2.28-10
+2020-04-11 17:52:42 install linux-libc-dev:amd64 <none> 4.19.98-1
+2020-04-11 17:52:42 status half-installed linux-libc-dev:amd64 4.19.98-1
+2020-04-11 17:52:43 status unpacked linux-libc-dev:amd64 4.19.98-1
+2020-04-11 17:52:43 install libc6-dev:amd64 <none> 2.28-10
+2020-04-11 17:52:43 status half-installed libc6-dev:amd64 2.28-10
+2020-04-11 17:52:45 status unpacked libc6-dev:amd64 2.28-10
+2020-04-11 17:52:45 install libsqlite3-0:amd64 <none> 3.27.2-3
+2020-04-11 17:52:45 status half-installed libsqlite3-0:amd64 3.27.2-3
+2020-04-11 17:52:46 status unpacked libsqlite3-0:amd64 3.27.2-3
+2020-04-11 17:52:46 install libsqlite3-dev:amd64 <none> 3.27.2-3
+2020-04-11 17:52:46 status half-installed libsqlite3-dev:amd64 3.27.2-3
+2020-04-11 17:52:46 status unpacked libsqlite3-dev:amd64 3.27.2-3
+2020-04-11 17:52:46 install libzip4:amd64 <none> 1.5.1-4
+2020-04-11 17:52:46 status half-installed libzip4:amd64 1.5.1-4
+2020-04-11 17:52:46 status unpacked libzip4:amd64 1.5.1-4
+2020-04-11 17:52:46 install zlib1g-dev:amd64 <none> 1:1.2.11.dfsg-1
+2020-04-11 17:52:46 status half-installed zlib1g-dev:amd64 1:1.2.11.dfsg-1
+2020-04-11 17:52:46 status unpacked zlib1g-dev:amd64 1:1.2.11.dfsg-1
+2020-04-11 17:52:46 install libzip-dev:amd64 <none> 1.5.1-4
+2020-04-11 17:52:46 status half-installed libzip-dev:amd64 1.5.1-4
+2020-04-11 17:52:47 status unpacked libzip-dev:amd64 1.5.1-4
+2020-04-11 17:52:47 install make:amd64 <none> 4.2.1-1.2
+2020-04-11 17:52:47 status half-installed make:amd64 4.2.1-1.2
+2020-04-11 17:52:47 status unpacked make:amd64 4.2.1-1.2
+2020-04-11 17:52:47 install sbcl:amd64 <none> 2:1.4.16-2
+2020-04-11 17:52:47 status half-installed sbcl:amd64 2:1.4.16-2
+2020-04-11 17:52:52 status unpacked sbcl:amd64 2:1.4.16-2
+2020-04-11 17:52:52 install unzip:amd64 <none> 6.0-23+deb10u1
+2020-04-11 17:52:52 status half-installed unzip:amd64 6.0-23+deb10u1
+2020-04-11 17:52:52 status unpacked unzip:amd64 6.0-23+deb10u1
+2020-04-11 17:52:52 startup packages configure
+2020-04-11 17:52:52 configure libkeyutils1:amd64 1.6-6 <none>
+2020-04-11 17:52:52 status unpacked libkeyutils1:amd64 1.6-6
+2020-04-11 17:52:52 status half-configured libkeyutils1:amd64 1.6-6
+2020-04-11 17:52:52 status installed libkeyutils1:amd64 1.6-6
+2020-04-11 17:52:52 configure libpsl5:amd64 0.20.2-2 <none>
+2020-04-11 17:52:52 status unpacked libpsl5:amd64 0.20.2-2
+2020-04-11 17:52:52 status half-configured libpsl5:amd64 0.20.2-2
+2020-04-11 17:52:52 status installed libpsl5:amd64 0.20.2-2
+2020-04-11 17:52:52 configure gawk:amd64 1:4.2.1+dfsg-1 <none>
+2020-04-11 17:52:52 status unpacked gawk:amd64 1:4.2.1+dfsg-1
+2020-04-11 17:52:52 status half-configured gawk:amd64 1:4.2.1+dfsg-1
+2020-04-11 17:52:52 status installed gawk:amd64 1:4.2.1+dfsg-1
+2020-04-11 17:52:52 configure libssl1.1:amd64 1.1.1d-0+deb10u2 <none>
+2020-04-11 17:52:52 status unpacked libssl1.1:amd64 1.1.1d-0+deb10u2
+2020-04-11 17:52:52 status half-configured libssl1.1:amd64 1.1.1d-0+deb10u2
+2020-04-11 17:52:53 status installed libssl1.1:amd64 1.1.1d-0+deb10u2
+2020-04-11 17:52:53 configure libzip4:amd64 1.5.1-4 <none>
+2020-04-11 17:52:53 status unpacked libzip4:amd64 1.5.1-4
+2020-04-11 17:52:53 status half-configured libzip4:amd64 1.5.1-4
+2020-04-11 17:52:53 status installed libzip4:amd64 1.5.1-4
+2020-04-11 17:52:53 configure unzip:amd64 6.0-23+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked unzip:amd64 6.0-23+deb10u1
+2020-04-11 17:52:53 status half-configured unzip:amd64 6.0-23+deb10u1
+2020-04-11 17:52:53 status installed unzip:amd64 6.0-23+deb10u1
+2020-04-11 17:52:53 configure libsqlite3-0:amd64 3.27.2-3 <none>
+2020-04-11 17:52:53 status unpacked libsqlite3-0:amd64 3.27.2-3
+2020-04-11 17:52:53 status half-configured libsqlite3-0:amd64 3.27.2-3
+2020-04-11 17:52:53 status installed libsqlite3-0:amd64 3.27.2-3
+2020-04-11 17:52:53 configure libnghttp2-14:amd64 1.36.0-2+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libnghttp2-14:amd64 1.36.0-2+deb10u1
+2020-04-11 17:52:53 status half-configured libnghttp2-14:amd64 1.36.0-2+deb10u1
+2020-04-11 17:52:53 status installed libnghttp2-14:amd64 1.36.0-2+deb10u1
+2020-04-11 17:52:53 configure linux-libc-dev:amd64 4.19.98-1 <none>
+2020-04-11 17:52:53 status unpacked linux-libc-dev:amd64 4.19.98-1
+2020-04-11 17:52:53 status half-configured linux-libc-dev:amd64 4.19.98-1
+2020-04-11 17:52:53 status installed linux-libc-dev:amd64 4.19.98-1
+2020-04-11 17:52:53 configure libldap-common:all 2.4.47+dfsg-3+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libldap-common:all 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 status half-configured libldap-common:all 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 status installed libldap-common:all 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 configure libkrb5support0:amd64 1.17-3 <none>
+2020-04-11 17:52:53 status unpacked libkrb5support0:amd64 1.17-3
+2020-04-11 17:52:53 status half-configured libkrb5support0:amd64 1.17-3
+2020-04-11 17:52:53 status installed libkrb5support0:amd64 1.17-3
+2020-04-11 17:52:53 configure libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 status half-configured libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 status installed libsasl2-modules-db:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 configure make:amd64 4.2.1-1.2 <none>
+2020-04-11 17:52:53 status unpacked make:amd64 4.2.1-1.2
+2020-04-11 17:52:53 status half-configured make:amd64 4.2.1-1.2
+2020-04-11 17:52:53 status installed make:amd64 4.2.1-1.2
+2020-04-11 17:52:53 configure librtmp1:amd64 2.4+20151223.gitfa8646d.1-2 <none>
+2020-04-11 17:52:53 status unpacked librtmp1:amd64 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:53 status half-configured librtmp1:amd64 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:53 status installed librtmp1:amd64 2.4+20151223.gitfa8646d.1-2
+2020-04-11 17:52:53 configure libk5crypto3:amd64 1.17-3 <none>
+2020-04-11 17:52:53 status unpacked libk5crypto3:amd64 1.17-3
+2020-04-11 17:52:53 status half-configured libk5crypto3:amd64 1.17-3
+2020-04-11 17:52:53 status installed libk5crypto3:amd64 1.17-3
+2020-04-11 17:52:53 configure libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 status half-configured libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 status installed libsasl2-2:amd64 2.1.27+dfsg-1+deb10u1
+2020-04-11 17:52:53 configure sbcl:amd64 2:1.4.16-2 <none>
+2020-04-11 17:52:53 status unpacked sbcl:amd64 2:1.4.16-2
+2020-04-11 17:52:53 status half-configured sbcl:amd64 2:1.4.16-2
+2020-04-11 17:52:53 status installed sbcl:amd64 2:1.4.16-2
+2020-04-11 17:52:53 configure libssh2-1:amd64 1.8.0-2.1 <none>
+2020-04-11 17:52:53 status unpacked libssh2-1:amd64 1.8.0-2.1
+2020-04-11 17:52:53 status half-configured libssh2-1:amd64 1.8.0-2.1
+2020-04-11 17:52:53 status installed libssh2-1:amd64 1.8.0-2.1
+2020-04-11 17:52:53 configure libkrb5-3:amd64 1.17-3 <none>
+2020-04-11 17:52:53 status unpacked libkrb5-3:amd64 1.17-3
+2020-04-11 17:52:53 status half-configured libkrb5-3:amd64 1.17-3
+2020-04-11 17:52:53 status installed libkrb5-3:amd64 1.17-3
+2020-04-11 17:52:53 configure freetds-common:all 1.00.104-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked freetds-common:all 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status half-configured freetds-common:all 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status installed freetds-common:all 1.00.104-1+deb10u1
+2020-04-11 17:52:53 configure libc-dev-bin:amd64 2.28-10 <none>
+2020-04-11 17:52:53 status unpacked libc-dev-bin:amd64 2.28-10
+2020-04-11 17:52:53 status half-configured libc-dev-bin:amd64 2.28-10
+2020-04-11 17:52:53 status installed libc-dev-bin:amd64 2.28-10
+2020-04-11 17:52:53 configure libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 status half-configured libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 status installed libldap-2.4-2:amd64 2.4.47+dfsg-3+deb10u1
+2020-04-11 17:52:53 configure libgssapi-krb5-2:amd64 1.17-3 <none>
+2020-04-11 17:52:53 status unpacked libgssapi-krb5-2:amd64 1.17-3
+2020-04-11 17:52:53 status half-configured libgssapi-krb5-2:amd64 1.17-3
+2020-04-11 17:52:53 status installed libgssapi-krb5-2:amd64 1.17-3
+2020-04-11 17:52:53 configure libcurl4:amd64 7.64.0-4+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libcurl4:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 status half-configured libcurl4:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 status installed libcurl4:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 configure libc6-dev:amd64 2.28-10 <none>
+2020-04-11 17:52:53 status unpacked libc6-dev:amd64 2.28-10
+2020-04-11 17:52:53 status half-configured libc6-dev:amd64 2.28-10
+2020-04-11 17:52:53 status installed libc6-dev:amd64 2.28-10
+2020-04-11 17:52:53 configure curl:amd64 7.64.0-4+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked curl:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 status half-configured curl:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 status installed curl:amd64 7.64.0-4+deb10u1
+2020-04-11 17:52:53 configure libsybdb5:amd64 1.00.104-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libsybdb5:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status half-configured libsybdb5:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status installed libsybdb5:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 configure libsqlite3-dev:amd64 3.27.2-3 <none>
+2020-04-11 17:52:53 status unpacked libsqlite3-dev:amd64 3.27.2-3
+2020-04-11 17:52:53 status half-configured libsqlite3-dev:amd64 3.27.2-3
+2020-04-11 17:52:53 status installed libsqlite3-dev:amd64 3.27.2-3
+2020-04-11 17:52:53 configure libct4:amd64 1.00.104-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked libct4:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status half-configured libct4:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status installed libct4:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 configure zlib1g-dev:amd64 1:1.2.11.dfsg-1 <none>
+2020-04-11 17:52:53 status unpacked zlib1g-dev:amd64 1:1.2.11.dfsg-1
+2020-04-11 17:52:53 status half-configured zlib1g-dev:amd64 1:1.2.11.dfsg-1
+2020-04-11 17:52:53 status installed zlib1g-dev:amd64 1:1.2.11.dfsg-1
+2020-04-11 17:52:53 configure libzip-dev:amd64 1.5.1-4 <none>
+2020-04-11 17:52:53 status unpacked libzip-dev:amd64 1.5.1-4
+2020-04-11 17:52:53 status half-configured libzip-dev:amd64 1.5.1-4
+2020-04-11 17:52:53 status installed libzip-dev:amd64 1.5.1-4
+2020-04-11 17:52:53 configure freetds-dev:amd64 1.00.104-1+deb10u1 <none>
+2020-04-11 17:52:53 status unpacked freetds-dev:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status half-configured freetds-dev:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 status installed freetds-dev:amd64 1.00.104-1+deb10u1
+2020-04-11 17:52:53 trigproc libc-bin:amd64 2.28-10 <none>
+2020-04-11 17:52:53 status half-configured libc-bin:amd64 2.28-10
+2020-04-11 17:52:53 status installed libc-bin:amd64 2.28-10
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                manifest.json                                                                                       0100644 0000000 0000000 00000000556 00000000000 011715  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        [{"Config":"6b409f81030a250c4e495278f082fe073ab6197d6389a539c931bc350f371725.json","RepoTags":["dimitri/pgloader:latest"],"Layers":["821daab8389df9bb9d937da0d3d35397fac17d3d430371d5a06d6ab78bdb51db/layer.tar","a11a39c9eb3a380daa0abe70617dcd31f5fd61d82b3a71738ec1ae610deb9902/layer.tar","95ee3cb689805f617928111f11dbcc2274b29076377dec7b18dad7446748c964/layer.tar"]}]
+                                                                                                                                                  repositories                                                                                        0100644 0000000 0000000 00000000143 00000000000 011656  0                                                                                                    ustar 00                                                                0000000 0000000                                                                                                                                                                        {"dimitri/pgloader":{"latest":"95ee3cb689805f617928111f11dbcc2274b29076377dec7b18dad7446748c964"}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
